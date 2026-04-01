@@ -1,8 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+html {
+  font-family: 'Architects Daughter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+:root {
+  --ion-font-family: 'Architects Daughter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-heirloom-beige font-sans text-heirloom-earthy antialiased;
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+    touch-action: pan-x pan-y;
+  }
+
+  #root,
+  ion-app,
+  ion-page,
+  ion-content,
+  ion-header,
+  ion-toolbar,
+  ion-title,
+  ion-label,
+  button,
+  input,
+  textarea,
+  select {
+    @apply font-sans text-heirloom-earthy antialiased;
+  }
+
+  #root {
+    min-height: 100%;
+    width: 100%;
+  }
+
+  #root,
+  ion-app,
+  ion-page,
+  ion-content {
+    height: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  * {
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  .shell-page {
+    @apply min-h-screen bg-gradient-to-b from-heirloom-beige via-heirloom-beige to-white;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  .shell-app-frame {
+    @apply flex h-screen flex-col overflow-hidden;
+    height: 100dvh;
+    max-width: 100vw;
+    padding-bottom: calc(env(safe-area-inset-bottom) + 5.5rem);
+  }
+
+  .shell-app-body {
+    @apply grid min-h-0 flex-1 gap-6 pt-4 pb-6 lg:py-6;
+    overflow-x: hidden;
+  }
+
+  .shell-app-sidebar {
+    @apply h-full min-h-0 overflow-hidden;
+  }
+
+  .shell-app-main {
+    @apply h-full min-h-0 overflow-y-auto pb-24 lg:pb-6;
+    min-width: 0;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .shell-mobile-nav {
+    @apply fixed inset-x-0 bottom-0 z-50 border-t border-heirloom-earthy/15 bg-white shadow-[0_-10px_30px_rgba(78,124,90,0.12)];
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .shell-container {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .shell-story-carousel {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .shell-story-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .heirloom-panel {
+    @apply rounded-[1.75rem] border border-heirloom-earthy/10 bg-white/85 p-6 shadow-[0_18px_60px_rgba(78,124,90,0.12)];
+  }
+
+  .heirloom-input {
+    @apply w-full rounded-2xl border border-heirloom-earthy/20 bg-white px-4 py-3 text-base text-heirloom-earthy shadow-sm outline-none transition focus:border-heirloom-tomato focus:ring-2 focus:ring-heirloom-soft-yellow;
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  input.heirloom-input,
+  select.heirloom-input,
+  textarea.heirloom-input {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  input[type='date'].heirloom-input {
+    appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    min-inline-size: 0;
+    overflow: hidden;
+  }
+
+  input[type='date'].heirloom-input::-webkit-datetime-edit,
+  input[type='date'].heirloom-input::-webkit-datetime-edit-fields-wrapper,
+  input[type='date'].heirloom-input::-webkit-date-and-time-value {
+    min-width: 0;
+    padding: 0;
+  }
+
+  input[type='date'].heirloom-input::-webkit-calendar-picker-indicator {
+    margin: 0;
+  }
+
+  .heirloom-button {
+    @apply inline-flex items-center justify-center rounded-full bg-heirloom-tomato px-5 py-3 text-sm font-semibold text-white transition hover:bg-heirloom-earthy focus:outline-none focus:ring-2 focus:ring-heirloom-soft-yellow focus:ring-offset-2;
+  }
+
+  .heirloom-button-secondary {
+    @apply bg-heirloom-soft-yellow text-heirloom-earthy hover:bg-heirloom-beige;
+  }
+}
+
+@media (min-width: 1024px) {
+  @layer components {
+    .shell-app-frame {
+      padding-bottom: 0;
+    }
+  }
 }

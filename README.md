@@ -6,11 +6,10 @@ Frontend-only React app designed for [Surge.sh](https://surge.sh) static hosting
 
 | Command | Purpose |
 |--------|---------|
-| `npm run dev` | Vite dev server |
-| `npm run build` | Production build → `dist/` |
-| `npm run preview` | Preview the production build locally |
-| `npm test` | Vitest |
-| `npm run deploy:surge` | Build and deploy `dist/` (requires `surge` CLI) |
+| `npm start` | CRA dev server (Fast Refresh **off** — required for React 19 + CRA; see `ARCHITECTURE.md`) |
+| `npm run build` | Production build → `build/` |
+| `npm test` | Jest (via `react-scripts`) |
+| `npm run deploy:surge` | Build and deploy `build/` (requires `surge` CLI) |
 
 ## Mock auth
 
